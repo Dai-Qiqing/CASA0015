@@ -11,6 +11,8 @@ class ApiConfig {
   static const api_recommendation = '/api/outfit/recommendation';
   // 浏览量
   static const api_update_views = '/api/outfit/updateViews';
+  // 浏览日期
+  static const api_date = '/api/record/date';
   // 浏览历史
   static const api_record = '/api/record/list';
 

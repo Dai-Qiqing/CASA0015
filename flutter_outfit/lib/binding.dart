@@ -7,5 +7,8 @@ class MainBinding extends Bindings {
     Get.lazyPut<HomeController>(
       () => HomeController(),
     );
+    Get.lazyPut<RecordController>(
+      () => RecordController(),
+    );
   }
 }

@@ -10,38 +10,21 @@ class RecordList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.find<RecordController>();
-    final l10n = AppLocalizations.of(context);
     var sliderController = CarouselSliderController();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          l10n.recommendation,
-          style: TextStyle(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.bold,
+    return Obx(
+      () => CarouselSlider(
+        items: List.generate(
+          controller.records.length,
+          (i) => RecordItem(
+            item: controller.records[i],
           ),
+        ).toList(),
+        carouselController: sliderController,
+        options: CarouselOptions(
+          viewportFraction: 1,
+          height: 579.h,
         ),
-        SizedBox(height: 20.h),
-        Obx(
-          () => CarouselSlider(
-            items: List.generate(
-              controller.records.length,
-              (i) => RecordItem(
-                item: controller.records[i],
-              ),
-            ).toList(),
-            carouselController: sliderController,
-            options: CarouselOptions(
-              viewportFraction: 0.8,
-              enlargeCenterPage: true,
-              height: 469.h,
-              autoPlay: true,
-            ),
-          ),
-        ),
-        SizedBox(height: 20.h),
-      ],
+      ),
     );
   }
 }
