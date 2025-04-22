@@ -40,7 +40,6 @@ class Recommendations extends StatelessWidget {
               viewportFraction: 0.8,
               enlargeCenterPage: true,
               height: 469.h,
-              autoPlay: true,
               onPageChanged: (index, reason) =>
                   controller.recommendationIndex.value = index,
             ),
