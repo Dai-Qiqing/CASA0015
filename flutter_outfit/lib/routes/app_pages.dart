@@ -22,5 +22,9 @@ class AppPages {
       name: AppRoutes.FAVORITE,
       page: () => const FavoritePage(),
     ),
+    GetPage(
+      name: AppRoutes.RECORDER,
+      page: () => const RecorderPage(),
+    ),
   ];
 }

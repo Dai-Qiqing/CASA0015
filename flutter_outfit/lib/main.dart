@@ -15,7 +15,7 @@ void main() {
             appBarTheme: const AppBarTheme(
               color: Color(0xFFDAC0DA),
             ),
-            scaffoldBackgroundColor: Colors.white,
+            scaffoldBackgroundColor: ColorValue.primary,
           ),
           debugShowCheckedModeBanner: false,
           initialRoute: AppPages.INITIAL,

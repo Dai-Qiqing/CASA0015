@@ -1,5 +1,5 @@
 class ApiConfig {
-  static const baseUrl = 'http://192.168.25.143:4000';
+  static const baseUrl = 'http://192.168.31.137:4000';
 
   // 注册
   static const api_register = '/api/auth/register';
@@ -11,6 +11,8 @@ class ApiConfig {
   static const api_recommendation = '/api/outfit/recommendation';
   // 浏览量
   static const api_update_views = '/api/outfit/updateViews';
+  // 新增穿搭
+  static const api_outfit_add = '/api/outfit/add';
   // 浏览日期
   static const api_date = '/api/record/date';
   // 浏览历史

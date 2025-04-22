@@ -9,3 +9,4 @@ export '../modules/home/index.dart';
 export '../modules/profile/index.dart';
 export '../modules/record/index.dart';
 export '../modules/favorite/index.dart';
+export '../modules/recorder/index.dart';

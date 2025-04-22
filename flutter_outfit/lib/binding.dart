@@ -13,5 +13,8 @@ class MainBinding extends Bindings {
     Get.lazyPut<FavoriteController>(
       () => FavoriteController(),
     );
+    Get.lazyPut<RecorderController>(
+      () => RecorderController(),
+    );
   }
 }

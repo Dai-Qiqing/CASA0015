@@ -148,6 +148,19 @@ class AppLocalizations {
     return Intl.message('Kind tips',
         name: 'titleTip', desc: '', locale: localeName);
   }
+
+  String get saveOutfit {
+    return Intl.message('Save Outfits',
+        name: 'saveOutfit', desc: '', locale: localeName);
+  }
+
+  String get album {
+    return Intl.message('Album', name: 'album', desc: '', locale: localeName);
+  }
+
+  String get flip {
+    return Intl.message('Flip', name: 'flip', desc: '', locale: localeName);
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

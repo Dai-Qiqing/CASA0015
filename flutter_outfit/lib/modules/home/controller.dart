@@ -47,7 +47,9 @@ class HomeController extends GetxController {
     recommendations.value = result ?? [];
   }
 
-  void onRecorderTap() {}
+  void onRecorderTap() {
+    Get.toNamed(AppRoutes.RECORDER);
+  }
 
   void onRecommendationItemTap(item) async {
     await apiOutfit.updateOutfitViews({
