@@ -5,6 +5,7 @@ class Outfit {
   final dynamic views;
   final dynamic picture;
   final dynamic category;
+  final dynamic favorite;
   final DateTime? createdAt;
   final DateTime? updateAt;
 
@@ -15,6 +16,7 @@ class Outfit {
     this.views,
     this.picture,
     this.category,
+    this.favorite,
     this.createdAt,
     this.updateAt,
   });
@@ -27,6 +29,7 @@ class Outfit {
       views: json['views'],
       picture: json['picture'],
       category: json['category'],
+      favorite: json['favorite'],
       createdAt: DateTime.parse(json['created_at']),
       updateAt: DateTime.parse(json['update_at']),
     );

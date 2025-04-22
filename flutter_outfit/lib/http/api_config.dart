@@ -19,8 +19,10 @@ class ApiConfig {
   static const api_record = '/api/record/list';
   // 收藏列表
   static const api_favorite_list = '/api/favorite/list';
-  // 收藏列表
+  // 删除收藏
   static const api_favorite_delete = '/api/favorite/delete';
+  // 添加收藏
+  static const api_favorite_add = '/api/favorite/add';
 
   static const connectTimeout = 3;
   static const receiveTimeout = 3;

@@ -33,7 +33,21 @@ class ApiFavorite {
       return response.data['code'] == 200;
     } catch (e) {
       // 请求失败，处理错误信息
-      debugPrint('获取收藏列表失败: $e');
+      debugPrint('删除收藏失败: $e');
+    }
+    return false;
+  }
+
+  Future<bool> addFavorite(data) async {
+    try {
+      var response = await HttpClient().dio.post(
+            ApiConfig.api_favorite_add,
+            data: jsonEncode(data),
+          );
+      return response.data['code'] == 200;
+    } catch (e) {
+      // 请求失败，处理错误信息
+      debugPrint('添加收藏失败: $e');
     }
     return false;
   }

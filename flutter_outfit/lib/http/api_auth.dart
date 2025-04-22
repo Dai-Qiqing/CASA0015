@@ -9,7 +9,6 @@ class ApiAuth {
             ApiConfig.api_register,
             data: jsonEncode(data),
           );
-      debugPrint('注册结果: ${response.data}');
       Map<String, dynamic> result = response.data;
       // 请求成功，处理响应数据
       return ResponseData.fromJson(result);
@@ -26,7 +25,6 @@ class ApiAuth {
             ApiConfig.api_login,
             data: jsonEncode(data),
           );
-      debugPrint('登录结果: ${response.data}');
       Map<String, dynamic> result = response.data;
       // 请求成功，处理响应数据
       return ResponseData.fromJson(result);

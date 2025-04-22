@@ -7,9 +7,9 @@ import 'package:flutter_outfit/index.dart';
 class ApiOutfit {
   Future<List<Outfit>?> getOutfits(data) async {
     try {
-      var response = await HttpClient().dio.get(
+      var response = await HttpClient().dio.post(
             ApiConfig.api_outfit,
-            queryParameters: data,
+            data: jsonEncode(data),
           );
       if (response.data['code'] == 200) {
         return (response.data['data'] as List)
@@ -25,10 +25,11 @@ class ApiOutfit {
     return null;
   }
 
-  Future<List<Outfit>?> getRecommendations() async {
+  Future<List<Outfit>?> getRecommendations(data) async {
     try {
-      var response = await HttpClient().dio.get(
+      var response = await HttpClient().dio.post(
             ApiConfig.api_recommendation,
+            data: jsonEncode(data),
           );
       // 请求成功，处理响应数据
       if (response.data['code'] == 200) {
