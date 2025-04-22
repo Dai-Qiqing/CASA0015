@@ -113,6 +113,28 @@ class AppLocalizations {
         name: 'favorites', desc: '', locale: localeName);
   }
 
+  String get edit {
+    return Intl.message('edit', name: 'edit', desc: '', locale: localeName);
+  }
+
+  String get complete {
+    return Intl.message('complete',
+        name: 'complete', desc: '', locale: localeName);
+  }
+
+  String get clearAll {
+    return Intl.message('Clear All',
+        name: 'clearAll', desc: '', locale: localeName);
+  }
+
+  String get delete {
+    return Intl.message('Delete', name: 'delete', desc: '', locale: localeName);
+  }
+
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', locale: localeName);
+  }
+
   String get records {
     return Intl.message('Records',
         name: 'records', desc: '', locale: localeName);

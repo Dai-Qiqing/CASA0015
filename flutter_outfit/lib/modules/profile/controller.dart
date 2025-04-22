@@ -34,7 +34,9 @@ class ProfileController extends GetxController {
     Get.offAllNamed(AppRoutes.AUTH);
   }
 
-  void navigateToFavorites() {}
+  void navigateToFavorites() {
+    Get.toNamed(AppRoutes.FAVORITE);
+  }
 
   void navigateToRecord() {
     Get.toNamed(AppRoutes.RECORD);

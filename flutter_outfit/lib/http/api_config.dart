@@ -1,5 +1,5 @@
 class ApiConfig {
-  static const baseUrl = 'http://192.168.31.137:4000';
+  static const baseUrl = 'http://192.168.25.143:4000';
 
   // 注册
   static const api_register = '/api/auth/register';
@@ -15,6 +15,10 @@ class ApiConfig {
   static const api_date = '/api/record/date';
   // 浏览历史
   static const api_record = '/api/record/list';
+  // 收藏列表
+  static const api_favorite_list = '/api/favorite/list';
+  // 收藏列表
+  static const api_favorite_delete = '/api/favorite/delete';
 
   static const connectTimeout = 3;
   static const receiveTimeout = 3;
