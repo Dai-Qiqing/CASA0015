@@ -27,13 +27,16 @@ class ProfilePage extends GetView<ProfileController> {
         CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: EdgeInsets.all(10.w),
+              padding: EdgeInsets.symmetric(
+                horizontal: 10.w,
+                vertical: 40.h,
+              ),
               sliver: SliverToBoxAdapter(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ProfileHeader(),
-                    SizedBox(height: 40.h),
+                    SizedBox(height: 20.h),
                     OptionItem(
                       icon: Icons.favorite,
                       title: l10n.favorites,
@@ -59,7 +62,7 @@ class ProfilePage extends GetView<ProfileController> {
             onPressed: controller.logout,
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xFFDABFDA),
-              minimumSize: Size(double.infinity, 60.h),
+              minimumSize: Size(double.infinity, 50.h),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.r),
               ),

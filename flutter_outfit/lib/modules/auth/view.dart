@@ -67,7 +67,7 @@ class AuthPage extends GetView<AuthController> {
                       onPressed: controller.submit,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFFDABFDA),
-                        minimumSize: Size(double.infinity, 60.h),
+                        minimumSize: Size(double.infinity, 50.h),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r),
                         ),

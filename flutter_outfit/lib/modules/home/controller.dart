@@ -41,8 +41,9 @@ class HomeController extends GetxController {
   }
 
   void onSearchForTap() async {
+    searchText.value = searchController.text;
     var result = await apiOutfit.getOutfits({
-      'key': searchController.text,
+      'key': searchText.value,
     });
     recommendations.value = result ?? [];
   }

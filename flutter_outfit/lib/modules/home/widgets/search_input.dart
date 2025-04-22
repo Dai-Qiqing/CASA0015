@@ -31,7 +31,6 @@ class SearchInput extends StatelessWidget {
                 Expanded(
                   child: TextFormField(
                     controller: controller.searchController,
-                    onChanged: (value) => controller.searchText.value = value,
                     decoration: InputDecoration(
                       hintText: l10n.searchInputTip,
                       border: InputBorder.none,

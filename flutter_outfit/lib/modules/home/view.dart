@@ -7,7 +7,8 @@ class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
 
   // 主视图
-  Widget _buildView() {
+  Widget _buildView(context) {
+    final l10n = AppLocalizations.of(context);
     return Stack(
       children: [
         Container(
@@ -26,13 +27,28 @@ class HomePage extends GetView<HomeController> {
         CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: EdgeInsets.all(10.w),
+              padding: EdgeInsets.symmetric(
+                horizontal: 10.w,
+                vertical: 20.h,
+              ),
               sliver: SliverToBoxAdapter(
                 child: Column(
                   children: [
                     SearchInput(),
                     SizedBox(height: 20.h),
-                    Recommendations(),
+                    Obx(
+                      () => controller.recommendations.isEmpty
+                          ? Center(
+                              child: Text(
+                                l10n.emptyTip,
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            )
+                          : Recommendations(),
+                    ),
                   ],
                 ),
               ),
@@ -51,7 +67,7 @@ class HomePage extends GetView<HomeController> {
       builder: (_) {
         return Scaffold(
           body: SafeArea(
-            child: _buildView(),
+            child: _buildView(context),
           ),
         );
       },

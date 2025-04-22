@@ -7,7 +7,8 @@ class FavoritePage extends GetView<FavoriteController> {
   const FavoritePage({super.key});
 
   // 主视图
-  Widget _buildView() {
+  Widget _buildView(context) {
+    final l10n = AppLocalizations.of(context);
     return Container(
       height: double.infinity,
       padding: EdgeInsets.all(10.w),
@@ -22,17 +23,27 @@ class FavoritePage extends GetView<FavoriteController> {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: Stack(
-        children: [
-          FavoriteList(),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: EditView(),
-          ),
-        ],
-      ),
+      child: controller.favorites.isEmpty
+          ? Center(
+              child: Text(
+                l10n.emptyTip,
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            )
+          : Stack(
+              children: [
+                FavoriteList(),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: EditView(),
+                ),
+              ],
+            ),
     );
   }
 
@@ -49,23 +60,26 @@ class FavoritePage extends GetView<FavoriteController> {
             centerTitle: true,
             actions: [
               Obx(
-                () => Container(
-                  height: 26.h,
-                  margin: EdgeInsets.only(right: 10.w),
-                  child: TextButton(
-                    onPressed: controller.toggleMode,
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.all(0),
-                      backgroundColor: Color(0xFFD09ECA),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4.r),
+                () => Visibility(
+                  visible: controller.favorites.isNotEmpty,
+                  child: Container(
+                    height: 26.h,
+                    margin: EdgeInsets.only(right: 10.w),
+                    child: TextButton(
+                      onPressed: controller.toggleMode,
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(0),
+                        backgroundColor: Color(0xFFD09ECA),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.r),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      controller.editMode.value ? l10n.complete : l10n.edit,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12.sp,
+                      child: Text(
+                        controller.editMode.value ? l10n.complete : l10n.edit,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12.sp,
+                        ),
                       ),
                     ),
                   ),
@@ -74,7 +88,9 @@ class FavoritePage extends GetView<FavoriteController> {
             ],
           ),
           body: SafeArea(
-            child: _buildView(),
+            child: Obx(
+              () => _buildView(context),
+            ),
           ),
         );
       },

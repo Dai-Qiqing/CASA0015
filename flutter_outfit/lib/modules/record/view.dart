@@ -3,13 +3,12 @@ import 'package:flutter_outfit/index.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'index.dart';
-
 class RecordPage extends GetView<RecordController> {
   const RecordPage({super.key});
 
   // 主视图
-  Widget _buildView() {
+  Widget _buildView(context) {
+    final l10n = AppLocalizations.of(context);
     return Container(
       height: double.infinity,
       padding: EdgeInsets.all(10.w),
@@ -24,13 +23,23 @@ class RecordPage extends GetView<RecordController> {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: Column(
-        children: [
-          RecordList(),
-          SizedBox(height: 25.h),
-          DateList(),
-        ],
-      ),
+      child: controller.records.isEmpty
+          ? Center(
+              child: Text(
+                l10n.emptyTip,
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            )
+          : Column(
+              children: [
+                RecordList(),
+                SizedBox(height: 25.h),
+                DateList(),
+              ],
+            ),
     );
   }
 
@@ -46,7 +55,9 @@ class RecordPage extends GetView<RecordController> {
             centerTitle: true,
           ),
           body: SafeArea(
-            child: _buildView(),
+            child: Obx(
+              () => _buildView(context),
+            ),
           ),
         );
       },

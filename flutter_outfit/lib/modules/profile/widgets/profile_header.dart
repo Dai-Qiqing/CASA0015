@@ -13,31 +13,31 @@ class ProfileHeader extends StatelessWidget {
       () => Row(
         children: [
           CircleAvatar(
-            radius: 36.r,
+            radius: 40.r,
             backgroundColor: Colors.brown[200],
             child: controller.avatarUrl.value.isNotEmpty
                 ? ClipOval(
                     child: Image.network(
                       controller.avatarUrl.value,
-                      width: 72.r,
-                      height: 72.r,
+                      width: 80.r,
+                      height: 80.r,
                       fit: BoxFit.cover,
                     ),
                   )
                 : Icon(
                     Icons.person,
-                    size: 40.sp,
+                    size: 80.sp,
                     color: Colors.white,
                   ),
           ),
-          SizedBox(width: 15.w),
+          SizedBox(width: 20.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 controller.userName.value,
                 style: TextStyle(
-                  fontSize: 18.sp,
+                  fontSize: 25.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),

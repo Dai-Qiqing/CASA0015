@@ -20,17 +20,18 @@ class OptionItem extends StatelessWidget {
       leading: Icon(
         icon,
         color: Colors.brown,
-        size: 24.sp,
+        size: 30.sp,
       ),
       title: Text(
         title,
         style: TextStyle(
-          fontSize: 16.sp,
+          fontSize: 20.sp,
+          fontWeight: FontWeight.w400,
         ),
       ),
       trailing: Icon(
         Icons.arrow_forward_ios,
-        size: 16.sp,
+        size: 20.sp,
         color: Colors.grey,
       ),
       onTap: onTap,

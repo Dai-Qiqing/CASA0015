@@ -13,19 +13,22 @@ class Recommendations extends StatelessWidget {
     var controller = Get.find<HomeController>();
     final l10n = AppLocalizations.of(context);
     var sliderController = CarouselSliderController();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          l10n.recommendation,
-          style: TextStyle(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.bold,
+    return Obx(
+      () => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Visibility(
+            visible: controller.searchText.value.isEmpty,
+            child: Text(
+              l10n.recommendation,
+              style: TextStyle(
+                fontSize: 24.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
-        ),
-        SizedBox(height: 20.h),
-        Obx(
-          () => CarouselSlider(
+          SizedBox(height: 20.h),
+          CarouselSlider(
             items: List.generate(
               controller.recommendations.length,
               (i) => RecommendationsItem(
@@ -42,10 +45,10 @@ class Recommendations extends StatelessWidget {
                   controller.recommendationIndex.value = index,
             ),
           ),
-        ),
-        SizedBox(height: 20.h),
-        IndicatorView(),
-      ],
+          SizedBox(height: 20.h),
+          IndicatorView(),
+        ],
+      ),
     );
   }
 }

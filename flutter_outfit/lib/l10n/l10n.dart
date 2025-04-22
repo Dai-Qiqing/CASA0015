@@ -161,6 +161,11 @@ class AppLocalizations {
   String get flip {
     return Intl.message('Flip', name: 'flip', desc: '', locale: localeName);
   }
+
+  String get emptyTip {
+    return Intl.message('It\'s empty!',
+        name: 'emptyTip', desc: '', locale: localeName);
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
