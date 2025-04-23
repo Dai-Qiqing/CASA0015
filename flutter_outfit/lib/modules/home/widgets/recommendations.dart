@@ -44,8 +44,8 @@ class Recommendations extends StatelessWidget {
                   controller.recommendationIndex.value = index,
             ),
           ),
-          SizedBox(height: 20.h),
-          IndicatorView(),
+          // SizedBox(height: 20.h),
+          // IndicatorView(),
         ],
       ),
     );
