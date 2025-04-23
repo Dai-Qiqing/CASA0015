@@ -24,11 +24,15 @@ class FavoriteController extends GetxController {
 
   var favoriteIndex = 0.obs;
 
+  var loading = true.obs;
+
   Future<void> initFavorites() async {
+    loading.value = true;
     var result = await apiFavorite.getFavorites({
       'userId': userId,
     });
     favorites.value = result;
+    loading.value = false;
   }
 
   void onTap() {}

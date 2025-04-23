@@ -23,27 +23,29 @@ class FavoritePage extends GetView<FavoriteController> {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: controller.favorites.isEmpty
-          ? Center(
-              child: Text(
-                l10n.emptyTip,
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w400,
+      child: controller.loading.value
+          ? Center(child: CircularProgressIndicator())
+          : controller.favorites.isEmpty
+              ? Center(
+                  child: Text(
+                    l10n.emptyTip,
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
+              : Stack(
+                  children: [
+                    FavoriteList(),
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: EditView(),
+                    ),
+                  ],
                 ),
-              ),
-            )
-          : Stack(
-              children: [
-                FavoriteList(),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: EditView(),
-                ),
-              ],
-            ),
     );
   }
 

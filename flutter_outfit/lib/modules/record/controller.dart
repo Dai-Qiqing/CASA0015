@@ -26,6 +26,8 @@ class RecordController extends GetxController {
 
   var dateIndex = 0.obs;
 
+  var loading = true.obs;
+
   Future<void> initDates() async {
     var result = await apiRecord.getDates({
       'userId': userId,
@@ -34,11 +36,13 @@ class RecordController extends GetxController {
   }
 
   void initRecords() async {
+    loading.value = true;
     var result = await apiRecord.getRecords({
       'userId': userId,
       'date': dates[dateIndex.value],
     });
     records.value = result ?? [];
+    loading.value = false;
   }
 
   void onTap() {}

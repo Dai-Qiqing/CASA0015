@@ -23,23 +23,25 @@ class RecordPage extends GetView<RecordController> {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: controller.records.isEmpty
-          ? Center(
-              child: Text(
-                l10n.emptyTip,
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w400,
+      child: controller.loading.value
+          ? Center(child: CircularProgressIndicator())
+          : controller.records.isEmpty
+              ? Center(
+                  child: Text(
+                    l10n.emptyTip,
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
+              : Column(
+                  children: [
+                    RecordList(),
+                    SizedBox(height: 25.h),
+                    DateList(),
+                  ],
                 ),
-              ),
-            )
-          : Column(
-              children: [
-                RecordList(),
-                SizedBox(height: 25.h),
-                DateList(),
-              ],
-            ),
     );
   }
 
