@@ -50,15 +50,17 @@ class FavoriteItem extends StatelessWidget {
             Visibility(
               visible: controller.editMode.value,
               child: Positioned(
-                right: 125.w,
-                top: 10.h,
+                right: 5.w,
+                top: 5.h,
                 child: IconButton(
                     icon: Icon(
                       controller.toDeleteFavorites.contains(item.id)
                           ? Icons.check_circle
-                          : Icons.circle,
-                      color: Colors.white,
-                      size: 25.sp,
+                          : Icons.circle_outlined,
+                      color: controller.toDeleteFavorites.contains(item.id)
+                          ? ColorValue.primary
+                          : Colors.brown,
+                      size: 30.sp,
                     ),
                     onPressed: () => controller.addToDeleteFavorites(item.id)),
               ),
