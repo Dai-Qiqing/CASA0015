@@ -50,6 +50,11 @@ class AppLocalizations {
         name: 'emailInputTip', desc: '', locale: localeName);
   }
 
+  String get emailInvalidTip {
+    return Intl.message('Please enter a valid email',
+        name: 'emailInvalidTip', desc: '', locale: localeName);
+  }
+
   String get password {
     return Intl.message('Password',
         name: 'password', desc: '', locale: localeName);

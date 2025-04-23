@@ -53,6 +53,7 @@ class AuthPage extends GetView<AuthController> {
                         label: l10n.email,
                         icon: Icons.email,
                         tip: l10n.emailInputTip,
+                        email: true,
                       ),
                     if (!isLogin) SizedBox(height: 25.h),
                     InputView(
