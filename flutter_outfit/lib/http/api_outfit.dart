@@ -61,7 +61,7 @@ class ApiOutfit {
     return false;
   }
 
-  Future<bool> addOutfit(file) async {
+  Future<bool> addOutfit(data, file) async {
     try {
       var response = await HttpClient().dio.post(
             ApiConfig.api_outfit_add,
@@ -70,6 +70,7 @@ class ApiOutfit {
                 file.path,
                 filename: file.name,
               ),
+              ...data,
             }),
           );
       // 请求成功，处理响应数据

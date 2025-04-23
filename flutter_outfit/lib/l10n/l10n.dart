@@ -166,6 +166,31 @@ class AppLocalizations {
     return Intl.message('It\'s empty!',
         name: 'emptyTip', desc: '', locale: localeName);
   }
+
+  String get recorderTitle {
+    return Intl.message('Edit outfit info',
+        name: 'recorderTitle', desc: '', locale: localeName);
+  }
+
+  String get recorderInputTip {
+    return Intl.message('Please input content',
+        name: 'recorderInputTip', desc: '', locale: localeName);
+  }
+
+  String get recorderName {
+    return Intl.message('Name',
+        name: 'recorderName', desc: '', locale: localeName);
+  }
+
+  String get recorderDescription {
+    return Intl.message('Description',
+        name: 'recorderDescription', desc: '', locale: localeName);
+  }
+
+  String get recorderCategory {
+    return Intl.message('Category',
+        name: 'recorderCategory', desc: '', locale: localeName);
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

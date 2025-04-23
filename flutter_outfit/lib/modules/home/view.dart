@@ -8,7 +8,6 @@ class HomePage extends GetView<HomeController> {
 
   // 主视图
   Widget _buildView(context) {
-    final l10n = AppLocalizations.of(context);
     return Stack(
       children: [
         Container(
@@ -36,19 +35,7 @@ class HomePage extends GetView<HomeController> {
                   children: [
                     SearchInput(),
                     SizedBox(height: 20.h),
-                    Obx(
-                      () => controller.recommendations.isEmpty
-                          ? Center(
-                              child: Text(
-                                l10n.emptyTip,
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            )
-                          : Recommendations(),
-                    ),
+                    Recommendations(),
                   ],
                 ),
               ),

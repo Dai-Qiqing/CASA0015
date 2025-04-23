@@ -1,5 +1,5 @@
 class ApiConfig {
-  static const baseUrl = 'http://192.168.31.137:4000';
+  static const baseUrl = 'http://192.168.210.166:4000';
 
   // 注册
   static const api_register = '/api/auth/register';

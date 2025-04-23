@@ -9,6 +9,19 @@ import 'package:get/get.dart';
 class RecorderPage extends GetView<RecorderController> {
   const RecorderPage({super.key});
 
+  void showSaveOutfitDialog(context) {
+    Get.bottomSheet(
+      SaveOutfitView(),
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(16.r),
+        ),
+      ),
+    );
+  }
+
   // 主视图
   Widget _buildView(context) {
     final l10n = AppLocalizations.of(context);
@@ -101,7 +114,7 @@ class RecorderPage extends GetView<RecorderController> {
                     height: 26.h,
                     margin: EdgeInsets.only(right: 10.w),
                     child: TextButton(
-                      onPressed: controller.saveOutfit,
+                      onPressed: () => showSaveOutfitDialog(context),
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.all(0),
                         backgroundColor: Color(0xFFD09ECA),

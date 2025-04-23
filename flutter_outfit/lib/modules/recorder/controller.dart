@@ -1,7 +1,9 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_outfit/index.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RecorderController extends GetxController {
   RecorderController();
@@ -53,9 +55,32 @@ class RecorderController extends GetxController {
   var loadPicture = false.obs;
 
   void saveOutfit() async {
-    await apiOutfit.addOutfit(image);
+    final l10n = AppLocalizations.of(Get.context!);
+    final name = nameController.text;
+    final description = descriptionController.text;
+    final category = categoryController.text;
+    if (name.isEmpty || description.isEmpty || category.isEmpty) {
+      Get.snackbar(l10n.titleTip, l10n.recorderInputTip);
+      return;
+    }
+    final prefs = await SharedPreferences.getInstance();
+    await apiOutfit.addOutfit(
+      {
+        'userId': prefs.getInt('userId'),
+        'name': nameController.text,
+        'description': descriptionController.text,
+        'category': categoryController.text,
+      },
+      image,
+    );
 
     loadPicture.value = false;
+
+    nameController.clear();
+    descriptionController.clear();
+    categoryController.clear();
+
+    Get.back();
   }
 
   final ImagePicker picker = ImagePicker();
@@ -100,9 +125,17 @@ class RecorderController extends GetxController {
     loading.value = false;
   }
 
+  final nameController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final categoryController = TextEditingController();
+
   @override
   void onClose() {
     super.onClose();
     cameralController.dispose();
+
+    nameController.dispose();
+    descriptionController.dispose();
+    categoryController.dispose();
   }
 }
