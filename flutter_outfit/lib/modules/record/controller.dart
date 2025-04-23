@@ -29,6 +29,7 @@ class RecordController extends GetxController {
   var loading = true.obs;
 
   Future<void> initDates() async {
+    loading.value = true;
     var result = await apiRecord.getDates({
       'userId': userId,
     });
@@ -36,12 +37,13 @@ class RecordController extends GetxController {
   }
 
   void initRecords() async {
-    loading.value = true;
-    var result = await apiRecord.getRecords({
-      'userId': userId,
-      'date': dates[dateIndex.value],
-    });
-    records.value = result ?? [];
+    if (dates.isNotEmpty) {
+      var result = await apiRecord.getRecords({
+        'userId': userId,
+        'date': dates[dateIndex.value],
+      });
+      records.value = result ?? [];
+    }
     loading.value = false;
   }
 
