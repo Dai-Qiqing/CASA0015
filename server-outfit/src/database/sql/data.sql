@@ -21,12 +21,12 @@ CREATE TABLE IF NOT EXISTS outfit (
 -- 插入 6 条默认数据
 INSERT INTO outfit (name, description, views, picture, category) 
 VALUES
-  ('Hat', "Cross border men's and women's couple's baseball caps paired with feather...", 0, 'hat.png', 'Comprehensive'),
-  ('Winter Outfit', 'A warm and cozy winter jacket for cold weather', 0, 'winter_outfit.png', 'Winter'),
-  ('Sporty Outfit', 'A comfortable and functional outfit for sports and fitness', 0, 'sporty_outfit.png', 'Sports'),
-  ('Summer Outfits', 'summer outfits blending comfort with trends. Ideal for beach days or casual outings', 0, 'summer_outfits.png', 'Casual'),
-  ('Ress', "One-Piece Dress, Lady's dress", 0, 'ress.png', 'Elegant Summer Outfits'),
-  ('White Sweate', 'light-colored jeans', 0, 'white_sweate.png', 'Fashionable Casual Wear ');
+  ('Hat', "This stylish retro baseball cap is designed to be simple and versatile, suitable for both men and women to wear on a daily basis.", 0, 'hat.png', 'Comprehensive'),
+  ('Winter Outfit', 'Pink woolen hat and beige trench coat, paired with a gray hooded sweatshirt, exuding a warm winter vibe', 0, 'winter_outfit.png', 'Winter Outfit'),
+  ('Sporty Outfit', 'The combination of short skirt and trench coat, paired with high boots and sunglasses, showcases a sleek urban sports style.', 0, 'sporty_outfit.png', 'Sports Outfit'),
+  ('Summer Outfits', 'Blue collar top, combining comfort and fashion, perfectly suited for beach vacations', 0, 'summer_outfits.png', 'Casual'),
+  ('Ress', "A striped dress, paired with white sneakers and a light colored hat, showcases a relaxed and playful summer look.", 0, 'ress.png', 'Elegant Summer Outfits'),
+  ('White Sweate', 'light-colored jeans', 0, 'white_sweate.png', 'Fashionable Casual Wear');
 
 -- 收藏表
 CREATE TABLE IF NOT EXISTS favorite (
